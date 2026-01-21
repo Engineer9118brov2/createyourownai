@@ -148,6 +148,16 @@ def init_session_state():
         st.session_state.current_assistant_id = None
     if "current_model" not in st.session_state:
         st.session_state.current_model = None
+    if "username" not in st.session_state:
+        st.session_state.username = ""
+    if "theme" not in st.session_state:
+        st.session_state.theme = "dark"
+    if "claude_key" not in st.session_state:
+        st.session_state.claude_key = ""
+    if "openai_key" not in st.session_state:
+        st.session_state.openai_key = ""
+    if "grok_key" not in st.session_state:
+        st.session_state.grok_key = ""
 
 
 def render_home_page():
@@ -163,8 +173,8 @@ def render_home_page():
         Create and manage custom AI assistants powered by local and cloud models.
         """)
     with col2:
-        if st.session_state.username:
-            st.info(f"� **{st.session_state.username}**")
+        if st.session_state.get("username"):
+            st.info(f"👤 **{st.session_state.username}**")
     
     st.divider()
     
@@ -711,12 +721,10 @@ def main():
         initial_sidebar_state="expanded"
     )
     
-    # Initialize session state
+    # Initialize session state FIRST
     init_session_state()
     
     # Apply theme
-    if "theme" not in st.session_state:
-        st.session_state.theme = "dark"
     apply_theme(st.session_state.theme)
     
     # Sidebar header
@@ -737,7 +745,7 @@ def main():
     st.sidebar.divider()
     
     # User info
-    if st.session_state.username:
+    if st.session_state.get("username"):
         st.sidebar.markdown(f"**👤 {st.session_state.username}**")
     
     # Backend status
