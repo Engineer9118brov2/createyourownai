@@ -234,10 +234,10 @@ def render():
             col1, col2, col3 = st.columns(3)
             with col1:
                 if st.button("💬 Go to Chat", use_container_width=True):
-                    st.switch_page("pages:chat.py")
+                    st.switch_page("chat.py")
             with col2:
                 if st.button("📋 View All", use_container_width=True):
-                    st.switch_page("pages:assistants.py")
+                    st.switch_page("assistants.py")
             with col3:
                 if st.button("✨ Create Another", use_container_width=True):
                     st.rerun()
@@ -277,7 +277,7 @@ def render():
                 with col_edit:
                     if st.button("💬 Chat", key=f"chat_{assistant['id']}", use_container_width=True):
                         st.session_state.current_assistant_id = assistant['id']
-                        st.switch_page("pages:chat.py")
+                        st.switch_page("chat.py")
                 
                 with col_delete:
                     if st.button("🗑️ Delete", key=f"delete_create_{assistant['id']}", use_container_width=True):

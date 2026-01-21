@@ -52,7 +52,7 @@ def render():
             unsafe_allow_html=True
         )
         if st.button("✨ Create Your First Assistant", use_container_width=True, type="primary"):
-            st.switch_page("pages:create_assistant.py")
+            st.switch_page("create_assistant.py")
         return
     
     # Search and filter bar
@@ -142,7 +142,7 @@ def render():
                 with col1:
                     if st.button("💬 Chat", key=f"chat_{assistant['id']}", use_container_width=True):
                         st.session_state.current_assistant_id = assistant["id"]
-                        st.switch_page("pages:chat.py")
+                        st.switch_page("chat.py")
                 
                 with col2:
                     if st.button("📥 Export", key=f"export_{assistant['id']}", use_container_width=True):

@@ -272,7 +272,7 @@ def render():
     
     with col4:
         if st.button("🏠 Home", use_container_width=True):
-            st.switch_page("pages:home.py")
+            st.switch_page("home.py")
     
 
 if __name__ == "__main__":

@@ -272,15 +272,15 @@ def render():
     
     with cta_col1:
         if st.button("✨ Create Assistant", use_container_width=True):
-            st.switch_page("pages:create_assistant.py")
+            st.switch_page("create_assistant.py")
     
     with cta_col2:
         if st.button("⚙️ Configure Settings", use_container_width=True):
-            st.switch_page("pages:settings.py")
+            st.switch_page("settings.py")
     
     with cta_col3:
         if st.button("💬 Open Chat", use_container_width=True):
-            st.switch_page("pages:chat.py")
+            st.switch_page("chat.py")
 
 
 if __name__ == "__main__":
