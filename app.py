@@ -49,7 +49,7 @@ init_session_state()
 pages = [
     st.Page("home.py", title="Home", icon="🏠"),
     st.Page("create_assistant.py", title="Create", icon="✨"),
-    st.Page("assistants.py", title="Assistants", icon="��"),
+    st.Page("assistants.py", title="Assistants", icon="👥"),
     st.Page("chat.py", title="Chat", icon="💬"),
     st.Page("settings.py", title="Settings", icon="⚙️"),
 ]
