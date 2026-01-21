@@ -2,10 +2,10 @@
 showSidebarNavigation = false
 
 [theme]
-primaryColor = "#00D9FF"
-backgroundColor = "#0E1117"
-secondaryBackgroundColor = "#161B22"
-textColor = "#C9D1D9"
+primaryColor = "#6366f1"
+backgroundColor = "#0f0f0f"
+secondaryBackgroundColor = "#1a1a1a"
+textColor = "#e0e0e0"
 font = "sans serif"
 
 [logger]
