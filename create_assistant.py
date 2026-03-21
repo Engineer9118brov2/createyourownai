@@ -1,4 +1,5 @@
 """Create Assistant page - Premium form with templates and RAG support"""
+import html
 import streamlit as st
 import json
 import os
@@ -258,13 +259,13 @@ def render():
                     <div class="card">
                         <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 12px;">
                             <div>
-                                <div style="font-weight: 600; font-size: 1rem; color: var(--text-primary);">{assistant['name']}</div>
-                                <div class="badge badge-accent" style="margin-top: 6px;">{assistant['status']}</div>
+                                <div style="font-weight: 600; font-size: 1rem; color: var(--text-primary);">{html.escape(assistant['name'])}</div>
+                                <div class="badge badge-accent" style="margin-top: 6px;">{html.escape(assistant['status'])}</div>
                             </div>
                         </div>
-                        <div style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 12px;">{assistant['description']}</div>
+                        <div style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 12px;">{html.escape(assistant['description'])}</div>
                         <div style="color: var(--text-secondary); font-size: 0.8rem; margin-bottom: 12px;">
-                            📅 {assistant['created_at'][:10]}
+                            📅 {html.escape(assistant['created_at'][:10])}
                             {' • 📚 +KB' if assistant.get('knowledge_base') else ''}
                         </div>
                     </div>

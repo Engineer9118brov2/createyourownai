@@ -1,4 +1,5 @@
 """Chat page - Modern multi-backend chat interface with streaming"""
+import html
 import streamlit as st
 import json
 import os
@@ -146,7 +147,7 @@ def render():
             <div style="display: flex; justify-content: {alignment}; margin-bottom: 16px;">
                 <div style="max-width: 75%; background: {bg_color}; color: {text_color}; padding: 12px 16px; border-radius: {border_radius}; border: 1px solid var(--border);">
                     <div style="white-space: pre-wrap; word-wrap: break-word; font-size: 0.95rem;">
-                        {message['content']}
+                        {html.escape(message['content'])}
                     </div>
                 </div>
             </div>
@@ -217,7 +218,7 @@ def render():
                             <div style="display: flex; justify-content: flex-start; margin-bottom: 16px;">
                                 <div style="max-width: 75%; background: var(--bg-secondary); color: var(--text-primary); padding: 12px 16px; border-radius: 12px 12px 12px 0; border: 1px solid var(--border);">
                                     <div style="white-space: pre-wrap; word-wrap: break-word; font-size: 0.95rem;">
-                                        {full_response}
+                                        {html.escape(full_response)}
                                     </div>
                                 </div>
                             </div>

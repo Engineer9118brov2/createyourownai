@@ -1,4 +1,5 @@
 """My Assistants page - Premium grid layout with search and filters"""
+import html
 import streamlit as st
 import json
 import os
@@ -109,26 +110,26 @@ def render():
                         <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 12px;">
                             <div style="flex: 1;">
                                 <div style="font-weight: 700; font-size: 1.1rem; color: var(--text-primary); margin-bottom: 6px;">
-                                    {assistant['name']}
+                                    {html.escape(assistant['name'])}
                                 </div>
                                 <div class="badge {'badge-accent' if assistant.get('status') == 'Active' else 'badge-danger'}">
-                                    {assistant.get('status', 'Active')}
+                                    {html.escape(assistant.get('status', 'Active'))}
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.5; margin-bottom: 12px;">
-                            {assistant['description']}
+                            {html.escape(assistant['description'])}
                         </div>
-                        
+
                         <div style="display: flex; gap: 12px; font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 16px;">
                             {'<span>📚 Knowledge Base</span>' if assistant.get('knowledge_base') else ''}
-                            <span>📅 {assistant['created_at'][:10]}</span>
+                            <span>📅 {html.escape(assistant['created_at'][:10])}</span>
                         </div>
-                        
+
                         <div style="border-top: 1px solid var(--border); padding-top: 12px;">
                             <div style="font-size: 0.8rem; color: var(--text-secondary);">
-                                System: <code>{assistant['system_prompt'][:40]}...</code>
+                                System: <code>{html.escape(assistant['system_prompt'][:40])}...</code>
                             </div>
                         </div>
                     </div>
