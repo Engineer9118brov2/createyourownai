@@ -1,4 +1,5 @@
 """Home page - Premium Dashboard with analytics and quick test"""
+import html
 import streamlit as st
 import os
 import json
@@ -206,10 +207,10 @@ def render():
                 st.markdown(
                     f"""
                     <div class="card" style="padding: 12px; cursor: pointer;">
-                        <div style="font-weight: 600; font-size: 0.9rem; color: var(--accent);">{asst.get('name', 'Untitled')}</div>
-                        <div style="color: var(--text-secondary); font-size: 0.8rem; margin-top: 4px;">{asst.get('description', '')[:50]}...</div>
+                        <div style="font-weight: 600; font-size: 0.9rem; color: var(--accent);">{html.escape(asst.get('name', 'Untitled'))}</div>
+                        <div style="color: var(--text-secondary); font-size: 0.8rem; margin-top: 4px;">{html.escape(asst.get('description', '')[:50])}...</div>
                         <div style="color: var(--text-secondary); font-size: 0.75rem; margin-top: 6px;">
-                            {asst.get('created_at', 'N/A')[:10]}
+                            {html.escape(asst.get('created_at', 'N/A')[:10])}
                         </div>
                     </div>
                     """,
